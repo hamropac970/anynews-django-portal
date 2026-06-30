@@ -1,0 +1,89 @@
+<div class="container-fluid">
+    <div class="row bg-secondary py-1 px-xl-5">
+        <div class="col-lg-4 d-none d-lg-block">
+            <div class="d-inline-flex align-items-center h-100">
+                <a class="text-body mr-3" href="">Biz Haqimizda</a>
+                <a class="text-body mr-3" href="">Kontaktlar</a>
+                <a class="text-body mr-3" href="">Yordam</a>
+                <a class="text-body mr-3" href="">FAQs</a>
+            </div>
+        </div>
+        <div class="col-lg-4 text-center text-lg-right">
+            <div class="d-inline-flex align-items-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Mening
+                        Akkauntim
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        {% if request.user.is_authenticated %}
+                        <form action="{% url 'signout' %}" method="post">
+                            {% csrf_token %}
+                            <button class="dropdown-item" type="submit">Sign out</button>
+                        </form>
+                        {% else %}
+                        <a class="dropdown-item" href="{% url 'signin' %}">Sign in</a>
+                        <a class="dropdown-item" href="{% url 'signup' %}">Sign up</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="btn-group mx-2">
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">USD
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">EUR</button>
+                        <button class="dropdown-item" type="button">RUB</button>
+                        <button class="dropdown-item" type="button">UZS</button>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">EN
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">UZ</button>
+                        <button class="dropdown-item" type="button">EN</button>
+                        <button class="dropdown-item" type="button">RU</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-inline-flex align-items-center d-block d-lg-none">
+                <a href="" class="btn px-0 ml-2">
+                    <i class="fas fa-heart text-dark"></i>
+                    <span class="badge text-dark border border-dark rounded-circle"
+                          style="padding-bottom: 2px;">0</span>
+                </a>
+                <a href="" class="btn px-0 ml-2">
+                    <i class="fas fa-shopping-cart text-dark"></i>
+                    <span class="badge text-dark border border-dark rounded-circle"
+                          style="padding-bottom: 2px;">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+        <div class="col-lg-6">
+            <a href="{% url 'home' %}" class="text-decoration-none d-inline-flex align-items-center">
+                <span class="h1 text-uppercase text-primary bg-dark pl-4 pr-1 mb-0 py-2">Any</span>
+                <span class="bg-dark text-primary h1 px-1 mb-0 py-2">
+                    <i class="fas fa-globe-asia fa-spin"></i>
+                </span>
+                <span class="h1 text-uppercase text-dark bg-primary pl-2 pr-4 mb-0 py-2 ml-n1">News</span>
+            </a>
+        </div>
+        <div class="col-lg-4 col-4 text-left">
+            <form action="">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Qidrish">
+                    <div class="input-group-append">
+                            <span class="input-group-text bg-transparent text-primary">
+                                <i class="fa fa-search"></i>
+                            </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-2 col-3 text-right">
+            <p class="m-0">CALL CENTRE</p>
+            <h5 class="m-0">+998977776633</h5>
+        </div>
+    </div>
+</div>
